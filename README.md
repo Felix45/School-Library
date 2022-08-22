@@ -2,7 +2,7 @@
 
 # School-Library
 
-> This is an Object Oriented school library console program that allows users to record available books in the library and their borrowing records
+> This is an Object Oriented console based school library program that allows users to keep records of available books in the library and their borrowing records
 
 
 ## Built With
