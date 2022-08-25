@@ -1,10 +1,12 @@
+# rubocop:disable Metrics/ClassLength
+
 require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rental'
 
 class App
-  def initialize()
+  def initialize
     @books = []
     @people = []
     @rentals = []
@@ -41,7 +43,7 @@ class App
   def run
     choice = 0
     while choice != 7
-      menu()
+      menu
       puts
       print '[Enter 1-7] '
       choice = gets.chomp.strip.to_i
@@ -50,12 +52,11 @@ class App
     end
   end
 
-
   def add_book
     puts
-    print "Title: "
+    print 'Title: '
     title = gets.chomp.strip.capitalize
-    print "Author: "
+    print 'Author: '
     author = gets.chomp.strip.capitalize
     @books.push(Book.new(title, author))
   end
@@ -87,7 +88,6 @@ class App
       print 'Please input a valid age (1 - 100): '
       age = gets.chomp.strip.to_i
     end
-
     print 'Name: '
     name = gets.chomp.strip.capitalize
     print 'Specialization: '
@@ -104,7 +104,6 @@ class App
       print 'Please input a valid age: (1 - 100): '
       age = gets.chomp.strip.to_i
     end
-
     print 'Name: '
     name = gets.chomp.strip.capitalize
     print 'Has parent permission? [Y/N]: '
@@ -124,22 +123,21 @@ class App
     puts 'Select a book from the following list by number'
     list_books
     book_choice = gets.chomp.to_i
-    while book_choice < 0 || book_choice >= @books.length
-      print "Please enter a number within 0 - #{(@books.length - 1)} range: "
+    while book_choice.negative? || book_choice >= @books.length
+      print "Please enter a number within 0 - #{@books.length - 1} range: "
       book_choice = gets.chomp.to_i
     end
     book = @books[book_choice]
     puts
-    puts
     puts 'Select a person from the following list by number (not id)'
     list_people
     person_choice = gets.chomp.to_i
-    while person_choice < 0 || person_choice >= @people.length
-      print "Please enter a number within 0 - #{(@people.length - 1)} range: "
+    while person_choice.negative? || person_choice >= @people.length
+      print "Please enter a number within 0 - #{@people.length - 1} range: "
       person_choice = gets.chomp.to_i
     end
     person = @people[person_choice]
-    print 'Enter date of booking: (yyyy-mm-dd)'
+    print 'Enter date of booking: (yyyy/mm/dd) : '
     date = gets.chomp.strip
     person.add_rental(date, book)
     puts 'Rental created successfully'
