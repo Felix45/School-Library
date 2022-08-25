@@ -31,6 +31,8 @@ class App
       create_person
     when 4
       add_book
+    when 5
+      create_rental
     end
   end
 
@@ -54,8 +56,8 @@ class App
   end
 
   def list_books
-    @books.each do |book|
-      puts "Title: \"#{book.title}\" Author: #{book.author}"
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: \"#{book.title}\" Author: #{book.author}"
     end
   end
 
@@ -108,9 +110,34 @@ class App
     puts 'Person created successfully'
   end
 
+  def create_rental
+    puts 'Select a book from the following list by number'
+    list_books
+    book_choice = gets.chomp.to_i
+    while book_choice < 0 || book_choice >= @books.length
+      print "Please enter a number within 0 - #{(@books.length - 1)} range: "
+      book_choice = gets.chomp.to_i
+    end
+    book = @books[book_choice]
+    puts
+    puts
+    puts 'Select a person from the following list by number (not id)'
+    list_people
+    person_choice = gets.chomp.to_i
+    while person_choice < 0 || person_choice >= @people.length
+      print "Please enter a number within 0 - #{(@people.length - 1)} range: "
+      person_choice = gets.chomp.to_i
+    end
+    person = @people[person_choice]
+    print 'Enter date of booking: (2022-08-25)'
+    date = gets.chomp.strip
+    person.add_rental(date, book)
+    puts 'Rental created successfully'
+  end
+
   def list_people
-    @people.each do |person|
-      puts "[#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}"
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}"
     end
   end
 end
