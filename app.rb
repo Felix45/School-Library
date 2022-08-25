@@ -128,7 +128,6 @@ class App
       book_choice = gets.chomp.to_i
     end
     book = @books[book_choice]
-    puts
     puts 'Select a person from the following list by number (not id)'
     list_people
     person_choice = gets.chomp.to_i
@@ -140,7 +139,6 @@ class App
     print 'Enter date of booking: (yyyy/mm/dd) : '
     date = gets.chomp.strip
     person.add_rental(date, book)
-    puts 'Rental created successfully'
   end
 
   def list_people
