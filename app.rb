@@ -40,6 +40,8 @@ class App
     choice = 0
     while choice != 7
       menu()
+      puts
+      print '[Enter 1-7] '
       choice = gets.chomp.strip.to_i
       check(choice)
       puts
@@ -48,6 +50,7 @@ class App
 
 
   def add_book
+    puts
     print "Title: "
     title = gets.chomp.strip.capitalize
     print "Author: "
@@ -56,12 +59,14 @@ class App
   end
 
   def list_books
+    puts
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: \"#{book.title}\" Author: #{book.author}"
+      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
     end
   end
 
   def create_person
+    puts
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     choice = gets.chomp.strip.to_i
     case choice
@@ -73,6 +78,7 @@ class App
   end
 
   def create_teacher
+    puts
     print 'Age: '
     age = gets.chomp.strip.to_i
     while age <= 0 || age >= 100
@@ -89,6 +95,7 @@ class App
   end
 
   def create_student
+    puts
     print 'Age: '
     age = gets.chomp.strip.to_i
     while age <= 0 || age >= 100
@@ -111,6 +118,7 @@ class App
   end
 
   def create_rental
+    puts
     puts 'Select a book from the following list by number'
     list_books
     book_choice = gets.chomp.to_i
@@ -136,6 +144,7 @@ class App
   end
 
   def list_people
+    puts
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}"
     end
