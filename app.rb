@@ -25,6 +25,8 @@ class App
     case choice
     when 1
       list_books
+    when 2
+      list_people
     when 3
       create_person
     when 4
@@ -104,5 +106,11 @@ class App
     end
     @people << Student.new(age, nil, name, parent_permission: permission)
     puts 'Person created successfully'
+  end
+
+  def list_people
+    @people.each do |person|
+      puts "[#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}"
+    end
   end
 end
