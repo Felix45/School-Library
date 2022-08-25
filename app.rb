@@ -33,6 +33,8 @@ class App
       add_book
     when 5
       create_rental
+    when 6
+      list_rentals
     end
   end
 
@@ -137,7 +139,7 @@ class App
       person_choice = gets.chomp.to_i
     end
     person = @people[person_choice]
-    print 'Enter date of booking: (2022-08-25)'
+    print 'Enter date of booking: (yyyy-mm-dd)'
     date = gets.chomp.strip
     person.add_rental(date, book)
     puts 'Rental created successfully'
@@ -147,6 +149,23 @@ class App
     puts
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id} Age: #{person.age}"
+    end
+  end
+
+  def list_rentals
+    puts
+    print 'ID of person: '
+    person_id = gets.chomp.to_i
+    person = get_person(person_id)
+    puts 'Rentals:'
+    person.rentals.each do |rental|
+      puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author}"
+    end
+  end
+
+  def get_person(id)
+    @people.each do |person|
+      return person if person.id == id
     end
   end
 end
