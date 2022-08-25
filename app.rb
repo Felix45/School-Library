@@ -25,6 +25,8 @@ class App
     case choice
     when 1
       list_books
+    when 3
+      create_person
     when 4
       add_book
     end
@@ -53,5 +55,54 @@ class App
     @books.each do |book|
       puts "Title: \"#{book.title}\" Author: #{book.author}"
     end
+  end
+
+  def create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    choice = gets.chomp.strip.to_i
+    case choice
+    when 1
+      create_student
+    when 2
+      create_teacher
+    end
+  end
+
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp.strip.to_i
+    while age <= 0 || age >= 100
+      print 'Please input a valid age (1 - 100): '
+      age = gets.chomp.strip.to_i
+    end
+
+    print 'Name: '
+    name = gets.chomp.strip.capitalize
+    print 'Specialization: '
+    specialization = gets.chomp.strip
+    @people << Teacher.new(age, specialization, name)
+    puts 'Person created successfully'
+  end
+
+  def create_student
+    print 'Age: '
+    age = gets.chomp.strip.to_i
+    while age <= 0 || age >= 100
+      print 'Please input a valid age: (1 - 100): '
+      age = gets.chomp.strip.to_i
+    end
+
+    print 'Name: '
+    name = gets.chomp.strip.capitalize
+    print 'Has parent permission? [Y/N]: '
+    permission = gets.chomp.strip.upcase
+    case permission
+    when 'Y'
+      permission = true
+    when 'N'
+      permission = false
+    end
+    @people << Student.new(age, nil, name, parent_permission: permission)
+    puts 'Person created successfully'
   end
 end
