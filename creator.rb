@@ -4,7 +4,7 @@ require_relative 'student'
 require_relative 'teacher'
 
 class Create
-  def Create.create_book(books)
+  def self.create_book(books)
     puts
     print 'Title: '
     title = gets.chomp.strip.capitalize
@@ -13,7 +13,7 @@ class Create
     books.push(Book.new(title, author))
   end
 
-  def Create.create_student(people)
+  def self.create_student(people)
     puts
     print 'Age: '
     age = gets.chomp.strip.to_i
@@ -35,7 +35,7 @@ class Create
     puts 'Person created successfully'
   end
 
-  def Create.create_teacher(people)
+  def self.create_teacher(people)
     puts
     print 'Age: '
     age = gets.chomp.strip.to_i
@@ -51,7 +51,7 @@ class Create
     puts 'Person created successfully'
   end
 
-  def Create.create_rental(people, books)
+  def self.create_rental(people, books)
     puts
     puts 'Select a book from the following list by number'
     List.list_books(books)
