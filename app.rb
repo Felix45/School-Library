@@ -1,3 +1,4 @@
+require_relative 'database'
 require_relative 'creator'
 
 class App
@@ -45,6 +46,7 @@ class App
       check(choice)
       puts
     end
+    Database.save(@books, @people, @rentals)
   end
 
   def create_person
