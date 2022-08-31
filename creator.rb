@@ -52,8 +52,7 @@ class Create
   end
 
   def self.create_rental(people, books, rentals)
-    puts
-    puts 'Select a book from the following list by number'
+    puts '\nSelect a book from the following list by number'
     List.list_books(books)
     book_choice = gets.chomp.to_i
     while book_choice.negative? || book_choice >= books.length
@@ -71,7 +70,6 @@ class Create
     person = people[person_choice]
     print 'Enter date of booking: (yyyy/mm/dd) : '
     date = gets.chomp.strip
-    rental = person.add_rental(date, book)
-    rentals << rental
+    rentals << person.add_rental(date, book)
   end
 end
