@@ -1,9 +1,10 @@
 require_relative 'database'
 require_relative 'creator'
+require_relative 'loaddata'
 
 class App
   def initialize
-    @books = []
+    @books = LoadData.load_books()
     @people = []
     @rentals = []
   end
