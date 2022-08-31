@@ -14,14 +14,14 @@ class LoadData
     File.write('./data/people.json', []) unless File.exist?('./data/people.json')
     records = JSON.parse(File.read('./data/people.json'))
     records.each do |record|
-      if record['type'] == 'Student'
-        person = Student.new(record['age'],
-          nil,
-          record['name'],
-          parent_permission: record['parent_permission'])
-      else
-        person = Teacher.new(record['age'], '', record['name']);
-      end
+      person = if record['type'] == 'Student'
+                 Student.new(record['age'],
+                             nil,
+                             record['name'],
+                             parent_permission: record['parent_permission'])
+               else
+                 Teacher.new(record['age'], '', record['name'])
+               end
       person.id = record['id']
       people << person
     end
