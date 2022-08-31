@@ -30,7 +30,7 @@ class App
     when 4
       Create.create_book(@books)
     when 5
-      Create.create_rental(@people, @books)
+      Create.create_rental(@people, @books, @rentals)
     when 6
       List.list_rentals(@people)
     end
