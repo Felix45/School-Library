@@ -4,8 +4,8 @@ require_relative 'loaddata'
 
 class App
   def initialize
-    @books = LoadData.load_books()
-    @people = LoadData.load_people()
+    @books = LoadData.load_books
+    @people = LoadData.load_people
     @rentals = LoadData.load_rentals(@books, @people)
   end
 
