@@ -13,7 +13,7 @@ describe Book do
     end
   end
 
-  context "Book rented out, " do
+  context 'Book rented out, ' do
     it 'adding one rental to book should have length of one' do
       @book.add_rental('2022/08/30', Student.new(20, nil, 'Felix Ouma'))
       expect(@book.rentals.length).to eq(1)
