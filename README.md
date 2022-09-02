@@ -17,7 +17,6 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 ```
   Ruby 
-
 ```
 ### Setup
 Clone the repository and change the directory to School-Library
@@ -26,7 +25,6 @@ Clone the repository and change the directory to School-Library
   $ git clone git@github.com:Felix45/School-Library.git
 
   $ cd School-Library
-
 ```
 
 ### Install
