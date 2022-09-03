@@ -52,6 +52,7 @@ Start the webpack dev server
 
 | 👤 Name | Github | Twitter | LinkedIn |
 |------|--------|---------|----------|
+|Abdul Hamid|[@abdulhamid](https://github.com/abdulhamiid)|[@@abdulhamid_adio](https://twitter.com/abdulhamid_adio)|[LinkedIn](https://www.linkedin.com/in/)|
 |Felix Ouma|[@Felix45](https://github.com/Felix45)|[@Felix_Atonoh](https://twitter.com/Felix_Atonoh)|[LinkedIn](https://www.linkedin.com/in/felix-ouma-639766b0/)|
 
 
